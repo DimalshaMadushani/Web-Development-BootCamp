@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Forms Demo</title>
+  </head>
+  <body>
+    <h1>Forms Demo</h1>
+    <form action="\tacos">
+        <p>
+            <!-- label is going alone with the input element --> 
+            <!-- for and id connects the label and input -->
+        <label for="username">Enter a Username:</label>
+        <input id = "username" type="text" placeholder="username" name = "username">
+        </p>
+    <div>
+        <label for="password">Enter your Password</label>
+        <input id = "password" type="password" placeholder="password" name = "password">
+    </div>
+
+    <p>
+        <label for="number">Enter a Number</label>
+        <input id = number type="number" placeholder="enter a number" name="number">
+    </p>
+        <label for="color">Pick a color</label>
+        <input id = "color" type="color" name = "color">
+    <p>
+
+    </p>
+        <!-- lables -->
+
+    <p>
+        <!-- when the type = submit it submit the form , if type = buuton i doesnt submit the form -->
+        <button class = "favorite styled" type = "submit"> submit </button>
+        <!-- another method with input element to implement a button -->
+        <input type="submit" value = "Click me!">
+    </p>
+
+    </form>
+   
+    <button>Not inside the form</button>
+    <h2>Hijacking Searches
+    </h2>
+    <!-- creating a form to submit data into a reddit -->
+    <form action="https://www.reddit.com/search/">
+        <input type="text" name = "q">
+        <button>search reddit</button>
+    </form>
+
+    <form action="https://www.google.com/search">
+        <input type="text" name = "q">
+        <button>Search Google</button>
+    </form>
+
+    <!-- radio buttons, check boxes, selects -->
+    <h2>More Inputs!!</h2>
+    <form action="/birds">
+        <input type="checkbox" name = "agree_tos" id = "agree">
+        <label for="agree">I agree to everything</label>
+        <button>Submit</button>
+
+        <!-- radio buttons -->
+        <!-- they are connected together since they have the same name -->
+        <p>
+            <h2>Radio button</h2>
+            <label for="xs">Extra Small</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <!-- value attribute is very important to send the request -->
+
+            <label for="s">Small</label>
+            <input type="radio" name="size" id="s" value = "s">
+
+            <label for="l">Large</label>
+            <input type="radio" name="size" id="l" value = "l">
+            
+        </p>
+        <button>Submit</button>
+
+        <h2>Select</h2>
+
+        <p>
+            <label for="meal">Please Select a Meal Type</label>
+            <select name="meal" id="meal">
+                <option value="">--Please choose an option--</option>
+                <option value="fish">Fish</option>
+                <option value="chicken">Chicken</option>
+                <option value="veg">Veg</option>
+            </select>
+        </p>
+        <button>Submit</button>
+
+        <h2>Range</h2>
+        <p>
+            <label for="volume">Audio Settings:</label>
+            <input type="range" id ="volume" name="volume" min ="0" max = "11">
+        </p>
+
+        <h2>Text Area Element</h2>
+        <p>
+            <label for="requests">Any Special Requests ?</label>
+            <br>
+            <textarea name="request" id="requests" cols="30" rows="10" placeholder="Type something here"></textarea>
+        </p>
+        
+        <button>Submit</button>
+
+       
+    </form>
+
+    <form action=""></form>
+  </body>
+</html>
