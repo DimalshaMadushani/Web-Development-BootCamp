@@ -1,0 +1,16 @@
+body {
+    color: purple;
+}
+
+section {
+    color: rgb(8, 45, 45);
+}
+
+form{
+    color: greenyellow;
+}
+
+/* since button and input doesnt inherit the color of form, explicitly do that */
+button,input{
+    color: inherit;
+}

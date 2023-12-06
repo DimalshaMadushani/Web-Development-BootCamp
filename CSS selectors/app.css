@@ -1,0 +1,115 @@
+
+/* body {
+    background-color: #f1faee;
+} */
+a{
+    text-decoration: none;
+}
+
+button{
+    font-size: 20px;
+    background-color: pink;
+}
+
+h1,h2{
+    color: rgb(209, 164, 209);
+}
+
+/* ID selector */ 
+/* to specifically select a color to one button so use the id of that button */
+#signup{
+    background-color: #6da0e7;
+    color: #4d074d;
+}
+
+span{
+    color:rgb(105, 180, 105) ;
+}
+
+.tag{
+    background-color: yellow;
+    font-size: 20px;
+}
+
+/* Decendent selector */
+.post a {
+    color: rebeccapurple;
+}
+
+footer a {
+    color: brown;
+}
+
+/* the buttons immedeiately come after input */
+input + button{
+    background-color: rgb(116, 225, 14);
+}
+
+h2 + button {
+    background-color: palegoldenrod;
+}
+
+/* direct decendent */
+footer > a {
+    color: brown;
+}
+
+/* Atrritube selector */
+input[type="password"]{
+    color: orange;
+}
+
+
+/* Pseudo classes */
+/* why this not working */
+button:hover {
+    background-color:blue;
+    color: wheat;
+}
+
+a:hover {
+    background-color: gold;
+    text-decoration: underline;
+  }
+
+/* get purple when click the button */
+button:active {
+    background-color: purple;
+}
+
+.post:nth-of-type(2n+1){
+    background-color: rgb(182, 233, 219);
+}
+
+/* Pseudo elements */
+/* selecting particular parts */
+h2::first-letter{
+    font-size: 30px;
+
+}
+
+p::first-line{
+    color: rgb(205, 87, 106);
+    
+}
+
+/* paragraph get yellow when select it */
+p::selection{
+    background-color: yellow;
+}
+
+/* ::before */
+a::before {
+    content: '🔗';
+  }
+
+  button:hover{
+    background-color: olive;
+    font-size: 10px;
+} 
+
+/* not use often but may be useful */
+/* button{
+    background-color: magenta !important;
+} */
+
