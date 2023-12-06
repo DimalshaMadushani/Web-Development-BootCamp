@@ -1,0 +1,18 @@
+h2{
+    color: palevioletred;
+    background-color: blanchedalmond;
+}
+
+button{
+    color: rgb(186, 42, 42);
+    background-color: cyan;
+}
+
+p{
+    color: olive;
+}
+
+/* body{
+    background-color: #00000;
+    similar to 000
+} */
