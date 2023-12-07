@@ -1,3 +1,6 @@
+html{
+    font-size: 10px;
+}
 section{
     background-color: aqua;
     width: 400px;
@@ -18,32 +21,60 @@ h1{
 
 /* em's and ram's */
 /* margin 1em is equal to current font size of that text = 40px */
-h2{
+#ems h2{
     font-size: 2em;
     margin-left: 1em;
 }
 
-h3{
+#ems h3{
     font-size: 1.5em;
 }
 
 /* this is similar to parents font size */
-p{
+#ems p{
     font-size: 1em;
 }
+
+
 /* parent of p and h2 */
-article{
+#ems {
     font-size: 20px;
 }
 
 /* to keep things relative use em s */
 /* here the parent is h1 so the 1em =40px */
-button{
+#ems button{
     font-size: 1em;
     padding: 0 1em;
     border-radius: 0.5em;
 }
 
-ul{
+#ems ul{
     font-size: 0.7em;
+}
+
+/* these all are chnage relative to root em which is html font size */
+#rems h2{
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+#rems h3{
+    font-size: 1.5rem;
+}
+
+#rems p{
+    font-size: 1rem;
+}
+
+
+/* this also inherit the font size from html which is the root */
+#rems article{
+    font-size: 20px;
+}
+
+#rems button{
+    font-size: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em;
 }
