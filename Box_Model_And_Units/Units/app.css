@@ -1,0 +1,49 @@
+section{
+    background-color: aqua;
+    width: 400px;
+    height: 400px;
+}
+
+div{
+    background-color: maroon;
+    width: 50%;
+    height: 50%;
+}
+
+h1{
+    font-size: 30px;
+    border: 1px solid black;
+    line-height: 200%;
+}
+
+/* em's and ram's */
+/* margin 1em is equal to current font size of that text = 40px */
+h2{
+    font-size: 2em;
+    margin-left: 1em;
+}
+
+h3{
+    font-size: 1.5em;
+}
+
+/* this is similar to parents font size */
+p{
+    font-size: 1em;
+}
+/* parent of p and h2 */
+article{
+    font-size: 20px;
+}
+
+/* to keep things relative use em s */
+/* here the parent is h1 so the 1em =40px */
+button{
+    font-size: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em;
+}
+
+ul{
+    font-size: 0.7em;
+}

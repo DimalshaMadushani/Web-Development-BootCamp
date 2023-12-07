@@ -1,0 +1,35 @@
+h1{
+    background-color: aquamarine;
+    border:1px solid black;
+    /* display to inline  */
+    display: block;
+    /* when elements are inline width height margin is not working */
+    width: 100px;
+    margin-top: 50px;
+    /* working */
+    padding: 50px;
+    
+}
+
+span{
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    /* span takes the entire block */
+    display: block;
+
+    /* in block elements all these are working */
+    width: 500px;
+    padding: 0px 120px;
+    /* margin-top: ; */
+    margin-top: 100px;
+
+}
+
+div{
+    height: 100px;
+    width: 100px;
+    background-color: brown;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 50px;
+}
