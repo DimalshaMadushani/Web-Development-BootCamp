@@ -1,0 +1,14 @@
+section{
+    width: 80%;
+    height: 400px;
+    /* background-image:url("https://images.rawpixel.com/image_450/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtNDIyLTA3Ni14LmpwZw.jpg");
+    background-size:cover;
+    background-position: bottom; */
+    background: center/cover url("https://images.rawpixel.com/image_450/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvam9iNDA1LXBsb3ktMDFjLmpwZw.jpg") orange;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 3em;
+    color: white;
+}
