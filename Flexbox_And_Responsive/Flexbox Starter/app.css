@@ -1,0 +1,35 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    /* main axis() and cross axis default is row for flex direction equal to main axis direction*/
+    /* cross axis is the 90 deg opposite to the main axis */
+    /* row- left to right, column-top to bottom by default*/
+    flex-direction: column;
+    justify-content:space-evenly;
+    /* chnage the direction of the cross axis by setting it to wrap reverse */
+    /* flex wrap happens along with the flex direction so think it with the flex direction */
+    /* no wrap is the default */
+    flex-wrap: wrap-reverse;
+    
+    align-items:flex-start;
+
+}
+
+#container div{
+    width: 200px;
+    height: 200px;
+}
