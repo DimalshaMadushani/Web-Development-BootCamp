@@ -11,7 +11,7 @@ h1 {
 #container {
     background-color: #003049;
     width: 90%;
-    height: 400px;
+    /* height: 400px; */
     margin: 0 auto;
     border: 5px solid #003049;
     display: flex;
@@ -19,11 +19,11 @@ h1 {
     /* cross axis is the 90 deg opposite to the main axis */
     /* row- left to right, column-top to bottom by default*/
     flex-direction: row;
-    justify-content:center;
+    /* justify-content:center; */
     /* chnage the direction of the cross axis by setting it to wrap reverse */
     /* flex wrap happens along with the flex direction so think it with the flex direction */
     /* no wrap is the default */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* this defines from where(of the cross axis) the items in the containter begin to flex */
     align-items:flex-start;
     /* specifies how flex lines are distributed along the cross axis in a flexbox container */
@@ -33,12 +33,29 @@ h1 {
 }
 
 #container div{
-    width: 200px;
+    /* width is ignored when we set the dlex basis for the items in the container */
+    /* width: 200px; */
     height: 200px;
+    text-align: center;
+    /* initial measurement of the item before add to the box */
+    flex-basis: 300px;
+    /* each of the items grow up to take up the space */
+    /* flex-grow: 1; */
+    /* use this to get more small when flexing */
+    /* max-width: 300px; */
 }
 
+/* div:nth-of-type(1){
+    flex-grow: 1;
+} */
+
+/* flex shrink , off the flex wrap*/
+div:nth-of-type(1){
+    flex-grow: 1;
+    flex-shrink: 3;
+}
 /* align-self , this is done for only one item in the container unlike the above properties */
- div:nth-of-type(2){
+ /* div:nth-of-type(2){
     align-self: center;
     
-}
+} */
