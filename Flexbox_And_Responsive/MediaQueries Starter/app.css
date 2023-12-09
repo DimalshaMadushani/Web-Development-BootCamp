@@ -1,0 +1,42 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    text-align: center;
+}
+nav {
+    font-size: 1.5em;
+}
+
+ul,li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+@media(max-width:800px) and (min-width: 600px){
+    h1{
+        color: purple;
+    }
+}
+
+@media(max-width: 1000px){
+    h1{
+        color: yellow;
+    }
+}
+/* anything upto 400px should be red in h1*/
+
+@media(max-width: 400px){
+    h1{
+        color: red;
+    }
+}
+
+@media(orientation: landscape){
+    body{
+        background-color: magenta;
+    }
+}
