@@ -5,12 +5,13 @@ const container2 = document.querySelector("#container2")
 form.addEventListener('submit',async function (e) {
     e.preventDefault();
     //remove all the images from the page after submiiting new search
-    removeImages()
+    clearResults();
     
     const searchTerm = form.elements.query.value
     //you can use the config which is from axios to apply the query
     const config = {params:{q:searchTerm}}
-    try{
+    
+        
         const res = await axios.get(`https://api.tvmaze.com/search/shows`,config)
         // const res = await axios.get(`https://api.tvmaze.com/search/shows?q=${input}`)
         console.log(res.data[0].show.image.medium)
@@ -18,25 +19,26 @@ form.addEventListener('submit',async function (e) {
         
         displayImages(res.data)
           // form.elements.query.value = '';
-    }
-    catch(e){
+    
+    // catch(e){
         
-        document.getElementById("pasan").innerHTML += `<h3 class="text-danger mt-5 text-center display:none">Not Found</h3>`
+    //     document.getElementById("pasan").innerHTML += `<h3 class="text-danger mt-5 text-center display:none">Not Found</h3>`
     
          
-    }
+    // }
     
 })
 
 function displayImages(pics) {
 
     for(let pic of pics){
-        if(pic.show.image){
-            const img = document.createElement('img');
+        const img = document.createElement('img');
+        if(!pic.show.image){
+            img.src = "https://school.cistercian.org/wp-content/uploads/connections-images/breianna-bairrington/no-image-available.jpg";
+        } else {
             img.src = pic.show.image.medium;
-            console.log(img.src);
-            console.log(document.querySelector("#pasan"));
-            document.getElementById("pasan").innerHTML += `
+        }
+        document.getElementById("pasan").innerHTML += `
         
                 <div class="col-12 col-sm-6 col-lg-3 mt-3">
                 <div class="card p-4 ps-5 pe-5">
@@ -46,8 +48,6 @@ function displayImages(pics) {
                 </div>
                 </div>
             `
-            //document.body.append(img)
-        }
        
     }
  //   console.log(document.body.img)
@@ -55,22 +55,18 @@ function displayImages(pics) {
  }
 
 
-const removeImages = () => {
+const clearResults = () => {
   
-        const imgTags = document.querySelectorAll('img'); 
-        for(let i=0;i<imgTags.length;i++) {
-            document.body.removeChild(imgTags[i]) ;
-            }
+        // const imgTags = document.querySelectorAll('img'); 
+        // for(let i=0;i<imgTags.length;i++) {
+        //     document.body.removeChild(imgTags[i]) ;
+        // }
 
-        
-            
-        
-    
+        const resultsContainer = document.querySelector("#pasan");
+        resultsContainer.remove();
+        const newContainer = document.createElement("div");
+        newContainer.id = "pasan";
+        newContainer.classList.add('row',  'mt-3')
+        document.body.append(newContainer);
 }
 
-const clearContainer = (cName) => {
-    const container = document.querySelector(cName);
-    console.log(container)
-    if(container.innerHTML != "")
-        container.remove();
-}
