@@ -1,6 +1,7 @@
 const searchButton = document.querySelector('#searchButton')
 const form = document.querySelector('#form')
-const container2 = document.querySelector("#container2")
+const container = document.querySelector("#container")
+const row = document.querySelector("#pasan");
 
 form.addEventListener('submit',async function (e) {
     e.preventDefault();
@@ -11,7 +12,7 @@ form.addEventListener('submit',async function (e) {
     //you can use the config which is from axios to apply the query
     const config = {params:{q:searchTerm}}
     
-        
+    try{    
         const res = await axios.get(`https://api.tvmaze.com/search/shows`,config)
         // const res = await axios.get(`https://api.tvmaze.com/search/shows?q=${input}`)
         console.log(res.data[0].show.image.medium)
@@ -20,12 +21,12 @@ form.addEventListener('submit',async function (e) {
         displayImages(res.data)
           // form.elements.query.value = '';
     
-    // catch(e){
+    }catch(e){
         
-    //     document.getElementById("pasan").innerHTML += `<h3 class="text-danger mt-5 text-center display:none">Not Found</h3>`
+        document.getElementById("pasan").innerHTML += `<h3 class="text-danger mt-5 text-center display:none">Not Found</h3>`
     
          
-    // }
+    }
     
 })
 
@@ -67,6 +68,6 @@ const clearResults = () => {
         const newContainer = document.createElement("div");
         newContainer.id = "pasan";
         newContainer.classList.add('row',  'mt-3')
-        document.body.append(newContainer);
+        container.append(newContainer);
 }
 
