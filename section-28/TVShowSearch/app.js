@@ -1,3 +1,4 @@
+// js file
 const searchButton = document.querySelector('#searchButton')
 const form = document.querySelector('#form')
 const container = document.querySelector("#container")
