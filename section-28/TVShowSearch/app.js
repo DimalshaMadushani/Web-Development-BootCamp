@@ -20,7 +20,7 @@ form.addEventListener('submit',async function (e) {
         console.log(res.data[0].show.name)
         //json objects
         console.log(res.data);
-        //console.log(res.data[0].show.summary);
+        // console.log(res.data[0].show.summary);
         displayImages(res.data)
           // form.elements.query.value = '';
     
@@ -45,6 +45,9 @@ function displayImages(results) {
 
         let rating = getRating(result);
         let duration = getDuration(result);
+        // let i = results.indexOf(result);
+        // let summary = getSummary(result,i);
+        let summary = getSummary(result);
 
         document.getElementById("pasan").innerHTML += `
        
@@ -59,8 +62,8 @@ function displayImages(results) {
 
                 <div class="card card-back p-4 ps-5 pe-5 ">
                     <h4 class="text-capitalize text-center text-danger fw-bolder mb-2">SYNOPSIS</h4>
-                    <span id="summary" class=" summary text-start ">${result.show.summary}</span>
-                    <button id="read" class="btn btn-success mt-2">Continue reading</button>
+                    <span id="summary" class=" summary text-start ">${summary}</span>
+                    <button id="readMore" class="btn btn-success mt-2" display:>Continue reading</button>
                     
                 </div>
                 </div>
@@ -104,3 +107,46 @@ const getDuration = (data) => {
         return "Not Available";
     }
 }
+
+// // get summary and make the button visible or invisible
+// const getSummary = (data,index) => {
+//     if(data.show.summary) {
+//         return data.show.summary;
+//     } else {
+//         const readMore = document.getElementById(`readMore${index}`);
+//         console.log(readMore,data.show.name);
+//         readMore.style.display = "none";
+//         return "Not Available";
+//     }
+// }
+
+// get summary and make the button visible or invisible
+const getSummary = (data) => {
+    if(data.show.summary) {
+        return data.show.summary;
+    } else {
+        const readMore = document.getElementById("readMore");
+        //console.log(readMore,data.show.name);
+        //readMore.style.display = "none";
+        return "Not Available";
+    }
+}
+
+// const getSummary = (data) => {
+//     if (data.show.summary) {
+//         return data.show.summary;
+//     } else {
+//         try {
+//             const readMore = document.getElementById("read");
+//             if (readMore) {
+//                 console.log("Hiding element for", data.show.name);
+//                 readMore.style.visibility = "hidden";
+//             } else {
+//                 console.error("Element with ID 'read' not found.");
+//             }
+//         } catch (error) {
+//             console.error("Error in getSummary:", error);
+//         }
+//         return "Not Available";
+//     }
+// }
