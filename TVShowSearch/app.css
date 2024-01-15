@@ -1,0 +1,51 @@
+/* css properties */
+.card {
+    transition: all 1s ease;
+    cursor: pointer;
+    border-radius: 5%;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.card-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.card-container:hover .card-front{
+    transform: rotateY(180deg);
+    perspective: 200rem;
+    box-shadow: 0px 0px 51px -36px black;
+    position: absolute;
+   
+}
+
+.card-container:hover .card-back{
+    transform: rotateY(0deg);
+    perspective: 200rem;
+    box-shadow: 0px 0px 51px -36px black;
+    position: absolute;
+
+   
+}
+
+.card-back {
+    transform:rotateY(180deg);
+    position: absolute;
+    
+}
+
+
+/* clamp the text using webkit engine*/
+.summary{
+    display: -webkit-box;
+    -webkit-line-clamp: 13;
+    -webkit-box-orient: vertical;
+    overflow:hidden;
+}
+
+
+  
