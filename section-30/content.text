@@ -1,0 +1,11 @@
+Learn
+
+ls 
+cd
+cd ..
+mkdir     = creates a folder
+touch     = creates a file inside a folder
+ls --help = get the manual
+rm filename = remove the file permenantly
+rmdir = remove empty folders
+rm -rf foldername = forcefully remove the non empty folders
