@@ -131,22 +131,3 @@ const getSummary = (data) => {
         return "Not Available";
     }
 }
-
-// const getSummary = (data) => {
-//     if (data.show.summary) {
-//         return data.show.summary;
-//     } else {
-//         try {
-//             const readMore = document.getElementById("read");
-//             if (readMore) {
-//                 console.log("Hiding element for", data.show.name);
-//                 readMore.style.visibility = "hidden";
-//             } else {
-//                 console.error("Element with ID 'read' not found.");
-//             }
-//         } catch (error) {
-//             console.error("Error in getSummary:", error);
-//         }
-//         return "Not Available";
-//     }
-// }
