@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+<body>
+    
+    <style>
+        img{max-height: 500px; };
+        .card-container{
+        position: relative;
+        height: 100%;
+        width: 100%;
+}
+    </style>
+    <%- include('partials/navbar')%>
+    <div class="container ">
+        
+    <h1 class="mt-5"><%= name%> subreddit</h1>
+    <h3 class="mt-4 mb-4"><%=description%></h3>
+    <p><%=subscribers%> Total subscribers <span class="bi bi-bell red-color"></span><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <i class="fa-solid fa-bell"></i></p>
+    <hr>
+    
+    <%for (let post of posts){%>
+        <div class="row mt-4">
+            <div class="col-12 card  border mb-5">
+            <div><%=post.title%></div>
+
+            <div class="text-center p-3">
+                <%if(post.img){%>
+                    <img src="<%=post.img %>" class="col-6 rounded mx-auto " alt="">
+                <%}%>
+            </div>
+            <div class="text-end">Author : <%=post.author%></div>
+            
+        </div>
+    </div> 
+    <%}%>    
+
+</div>
+   <%- include('partials/footer') %>
