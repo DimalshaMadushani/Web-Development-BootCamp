@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>GET and POST Requests</h1>
+    <h2>GET</h2>
+    <form action="http://localhost:3000/tacos" method="get">
+      <input type="text" name="meat" id="" />
+      <input type="number" name="qty" id="" />
+      <button>Submit</button>
+    </form>
+
+    <h2>POST</h2>
+    <form action="http://localhost:3000/tacos" method="post">
+      <input type="text" name="meat" id="" />
+      <input type="number" name="qty" id="" />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
+
+<!-- the index.js file sets up an Express.js server with two route handlers for GET
+and POST requests to the "/tacos" endpoint, while the getPOST.html file provides
+a web page with forms that allow users to make these GET and POST requests to
+the server. The "method" attribute in the HTML form tag specifies the HTTP
+method used when submitting the form data to the server. -->
+
+
+<!-- REST
+GET / comments - list all comments
+POST / comments - create a new comment
+GET / comments/:id - get one comment using ID
+PATCH / comments /:id update a comment
+DELETE / comments /:id - delete a comment -->

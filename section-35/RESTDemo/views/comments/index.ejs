@@ -1,0 +1,23 @@
+<!-- show all resource's comments -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments Index</title>
+</head>
+<body>
+    <h1>Comments</h1>
+   <% for (let comment of comments){%>
+    <ul>
+        <li>
+            <%= comment.username%> - <%= comment.comment%>
+            <a href="/comments/<%= comment.id%>">details</a></li>
+        
+    </ul>
+   <%}%>
+
+   <a href="/comments/new">Add a comment</a>
+    
+</body>
+</html>
