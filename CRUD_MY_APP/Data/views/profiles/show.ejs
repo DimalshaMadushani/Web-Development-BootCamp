@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Welcome <%= profile.name %> !</h1>
+
+    <li>Name: <%=profile.name  %></li>
+    <li>Designation:<%=profile.designation  %></li>
+    <li>Age: <%=profile.age  %></li>
+    <li>Email :<%=profile.email  %></li>
+
+    <form  method="POST" action="/profiles/<%= category %>/<%= profile.id %>?_method=DELETE">
+        <button>delete</button>
+    </form>
+    
+   
+</body>
+</html>

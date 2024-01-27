@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>Create a new profile </h1>
+    <form action="/profiles/<%=category %>" method="post">
+        <div>
+            <label for="name">Enter name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <br>
+        <div>
+            <label for="designation">Enter Designation:</label>
+            <input type="text" name = "designation" id="designation">
+        </div>
+        <br>
+        <div>
+            <label for="age">Enter age:</label>
+            <input type="number" name="age"    id="age">
+        </div>
+        <br>
+        <div>
+            <label for="email">Enter email:</label>
+            <input type="text" name="email" id="email">
+        </div>
+    
+        <button>Submit</button>
+
+    </form>
+    
+</body>
+</html>
