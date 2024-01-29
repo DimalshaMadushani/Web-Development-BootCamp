@@ -17,6 +17,24 @@ function getID(people) {
   }
 ;
 
+// Function to handle category-specific operations
+function handleCategory(category) {
+    switch(category){
+        case "academic":
+            title = "Academic Staff";
+            profiles = academic;
+            break;
+        case "nonAcademic":
+            title = "Non Academic Staff";
+            profiles = nonAcademic;
+            break;
+        case "students":
+            title = "Students";
+            profiles = students;
+            break;
+    }
+}
+;
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -35,6 +53,9 @@ app.set('views',path.join(__dirname,'views'))
 
 //global variables
 let profiles;
+let title;
+let keys;
+
 //Home route handler
 app.get('/profiles',(req,res) => {
     // res.send("WELCOME")
@@ -46,23 +67,8 @@ app.get('/profiles',(req,res) => {
 //generic route for category of staff
 app.get('/profiles/:category',(req,res) => {
     const {category} = req.params;
-    // let title;
-    // let profiles;
-    // console.log(students)
-    switch(category){
-        case "academic":
-            title = "Academic Staff",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students",
-            profiles = students;
-            break;
-    }
+    handleCategory(category);
+    
     res.render('profiles/index',{title,profiles,category})
    
 })
@@ -71,47 +77,18 @@ app.get('/profiles/:category',(req,res) => {
 // GET request to render the form
 app.get('/profiles/:category/new',(req,res) => {
     const {category} = req.params;
-    let title;
-    // let profiles;
-    switch(category){
-        case "academic":
-            title = "Academic Staff New",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff new",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students New",
-            profiles = students;
-            break;
-    }
-
-    res.render('profiles/new',{title,category,profiles})
+    keys = Object.keys(profiles[0]);
+    handleCategory(category);
+    console.log(keys)
+    res.render('profiles/new',{title,category,profiles,keys})
 }) 
 
 //POST request to submit the form
 app.post('/profiles/:category',(req,res) => {
     const {category} = req.params;
-    let title;
-    let profiles;
     const {name,designation,age,email} = req.body;
-    console.log(req.body)
-    switch(category){
-        case "academic":
-            title = "Academic Staff New",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff new",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students New",
-            profiles = students;
-            break;
-    }
+    handleCategory(category);
+
     const newID = getID(profiles);
     // console.log(newID)
     profiles.push({id:newID,name,designation,age,email});
@@ -123,23 +100,14 @@ app.post('/profiles/:category',(req,res) => {
 app.get('/profiles/:category/:id',(req,res) => {
     const {id,category} = req.params;
     //choosing the corresponding profile set according to category
-    switch(category){
-        case "academic":
-            title = "Academic staff show",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff show",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students show",
-            profiles = students;
-            break;
-    }
+    handleCategory(category);
+
+    //extract the keys of the profile object
+    keys = Object.keys(profiles[0]);
+    console.log(keys)
     //get the corressponding profile by the id
     const profile = profiles.find(p => p.id === (id));
-    res.render('profiles/show',{profile,category})
+    res.render('profiles/show',{profile,category,keys})
 })
 
 //edit a profile
@@ -148,50 +116,22 @@ app.get('/profiles/:category/:id',(req,res) => {
 
 app.get('/profiles/:category/:id/edit',(req,res) => {
     const {category,id} = req.params;
-    // let title;
-    // let profiles;
-    // const {name,designation,age,email} = req.body;
-    switch(category){
-        case "academic":
-            title = "Academic Staff New",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff new",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students New",
-            profiles = students;
-            break;
-    }
+    handleCategory(category);
+
+    keys = Object.keys(profiles[0]);
     const profile = profiles.find(p => p.id === (id))
     // res.send("edit")
-    res.render('profiles/edit',{profile,title,category})
+    res.render('profiles/edit',{profile,title,category,keys})
 
 })
 
 //update the profile 
 app.patch('/profiles/:category/:id',(req,res) => {
     const {category,id} = req.params;
-    // let title;
-    // let profiles;
     //destructure the object req.body into variables
     const {name,designation,age,email} = req.body;
-    switch(category){
-        case "academic":
-            title = "Academic Staff New",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff new",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students New",
-            profiles = students;
-            break;
-    }
+    handleCategory(category);
+
     //find the profile which needed to edit
     const profile = profiles.find(p => p.id === (id))
     //assign the new values to the profile
@@ -212,27 +152,14 @@ app.delete('/profiles/:category/:id',(req,res) => {
     console.log(id)
     //destructure the object req.body into variables
     const {name,designation,age,email} = req.body;
-    switch(category){
-        case "academic":
-            title = "Academic Staff New",
-            profiles = academic;
-            break;
-        case "nonAcademic":
-            title = "Non Academic Staff new",
-            profiles = nonAcademic;
-            break;
-        case "students":
-            title = "Students New",
-            profiles = students;
-            break;
-    }
+    handleCategory(category);
 
     //find the profile which needed to edit
     console.log(profiles)
     profiles = profiles.filter(p => p.id !== (id));
     console.log(profiles)
-    res.redirect(`/profiles/${category}`) ///////////////not workingggggggggggggggggg
-    // res.redirect("/profiles")
+    // res.redirect(`/profiles/${category}`) ///////////////not workingggggggggggggggggg
+    res.redirect("/profiles/academic")
 })
 
 

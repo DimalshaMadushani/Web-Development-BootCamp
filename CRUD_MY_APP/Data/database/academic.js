@@ -8,7 +8,7 @@ module.exports = [
     },
     {
         id: 'CSE-002',
-        name: 'Dr. Md. Shahriar Rahman',
+        name: 'Dr. Md. Shahriar Fairooz',
         designation: 'Professor',
         age: 50,
         email: 'sdfssd@gmail.com'
