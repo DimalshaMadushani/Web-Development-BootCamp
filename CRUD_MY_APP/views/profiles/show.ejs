@@ -1,0 +1,38 @@
+<%- include('../partials/header')%>
+    <title>Show profile</title>
+    
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <h1>Welcome <%= profile.name %> !</h1>
+
+    <div class="card card-show border-primary mb-3 " >
+        <div class="card-header text-center"><%= title %> Profile</div>
+        <div class="card-body text-primary">
+            <ul class="d-grid gap-3">
+                <li>Name: <%=profile.name  %></li>
+                <li><%=keys[2] %>:<%= profile[keys[2]]%> %></li>
+                <li>Age: <%=profile.age  %></li>
+                <li>Email :<%=profile.email  %></li>
+            </ul>
+            
+
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <div class="row">
+            <form class="text-left col" method="POST" action="/profiles/<%= category %>/<%= profile.id %>?_method=DELETE">
+                <button type="submit" class="btn btn-outline-danger btn-sm mb-3">Delete</button>
+               
+            </form>
+            <!-- edit button -->
+            <div class="text-end col">
+                <a href="/profiles/<%=category %>/<%= profile.id %>/edit" >
+                    <button type="button" class="btn btn-outline-primary btn-sm ">Edit</button>
+                </a>
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>   
+</body>
+</html>

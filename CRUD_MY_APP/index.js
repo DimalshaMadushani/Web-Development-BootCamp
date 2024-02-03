@@ -1,3 +1,22 @@
+const express = require('express');
+const app = express();
+const path = require('path');
+//to ovveride the patch , delete requests
+const methodOverride = require('method-override');
+const {academic,nonAcademic,students} = require('./database')
+//middleware
+//this is for parsing the body of the request
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(express.json())// for parsing application/json
+//_method is the name of the query string
+app.use(methodOverride('_method'))
+//for serving static files
+
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'))
+app.use(express.static(path.join(__dirname, '/public')))
+
+
 function getID(people) {
     if (!people || people.length === 0) {
       throw new Error('The people array is empty or not provided');
@@ -35,21 +54,8 @@ function handleCategory(category) {
     }
 }
 ;
-const express = require('express');
-const app = express();
-const path = require('path');
-//to ovveride the patch , delete requests
-const methodOverride = require('method-override');
-const {academic,nonAcademic,students} = require('./database')
-//middleware
-//this is for parsing the body of the request
-app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-app.use(express.json())// for parsing application/json
-//_method is the name of the query string
-app.use(methodOverride('_method'))
 
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname,'views'))
+
 
 //global variables
 let profiles;
@@ -87,6 +93,7 @@ app.get('/profiles/:category/new',(req,res) => {
 app.post('/profiles/:category',(req,res) => {
     const {category} = req.params;
     const {name,designation,age,email} = req.body;
+    console.log(req.body)
     handleCategory(category);
 
     const newID = getID(profiles);
@@ -107,7 +114,7 @@ app.get('/profiles/:category/:id',(req,res) => {
     console.log(keys)
     //get the corressponding profile by the id
     const profile = profiles.find(p => p.id === (id));
-    res.render('profiles/show',{profile,category,keys})
+    res.render('profiles/show',{profile,category,keys,title})
 })
 
 //edit a profile
@@ -155,11 +162,22 @@ app.delete('/profiles/:category/:id',(req,res) => {
     handleCategory(category);
 
     //find the profile which needed to edit
-    console.log(profiles)
-    profiles = profiles.filter(p => p.id !== (id));
-    console.log(profiles)
+    // console.log(profiles)
+    // profiles = profiles.filter(p => p.id !== (id));
+    // console.log(profiles)
     // res.redirect(`/profiles/${category}`) ///////////////not workingggggggggggggggggg
+    
+    // Filter out numbers greater than 3
+    let removeIndex;
+    for (let i = 0; i < profiles.length; i++) {
+        if (profiles[i].id === (id)) {
+            removeIndex = i;
+            break;
+        }
+    }
+    profiles.splice(removeIndex, 1);    
     res.redirect("/profiles/academic")
+
 })
 
 

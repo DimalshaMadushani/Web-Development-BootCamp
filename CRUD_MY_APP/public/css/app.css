@@ -1,0 +1,79 @@
+body {
+    background-color: #DCF2F1;
+    /* text-align: center; */
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+ 
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+
+ul{
+    padding-left: 0;
+}
+
+li{
+    text-decoration: none;
+    list-style-type: none;
+    line-height: 1.5rem;
+}
+
+.member{
+    text-decoration: none;
+    /* text-align: center; */
+}
+
+/* showing one profile inside a card */
+.card-show {
+    max-width: 75%; /* Added */
+    max-height: 60%; /* Added */
+    margin: 2rem auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+.card-home{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    height: 20rem;
+    margin: 2rem auto;
+    border-radius: 10px;
+    border: 1.5px solid #312f98;
+    transition: all 0.3s ease-in-out; 
+    padding-top: 10%;
+ 
+}
+
+.card-home:hover{
+    box-shadow: 5px 6px 6px 2px #cccded;
+    transform: scale(1.05);
+}
+
+
+/* .form-container {
+    width: 25%;
+} */
+
+.labels{
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.form-edit label{
+    font-size: 1rem;
+    font-weight: lighter;
+    color:rgb(86, 85, 83)
+}
+
+.home-link{
+    text-decoration: none;
+    font-size: 2.0rem;
+    color: rgb(43, 11, 88);
+    text-align: center;
+    font-weight: bold;
+    color: rgb(16, 77, 53);
+}

@@ -1,0 +1,26 @@
+<%- include('../partials/header')%>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('../partials/navbar')%>
+    <h1><%= title %></h1>
+    
+    <ul class="d-grid gap-3 text-center">
+    <%for(let p of profiles){%>
+      <li>
+        <a href="/profiles/<%=category %>/<%= p.id %>" class="member"><%= p.name%></a>
+    </li>
+        <% } %>
+    </ul>
+<!-- 
+    <div class="ms-5">
+    </div> -->
+    
+    <div class="text-center">
+      <a href="/profiles/<%=category %>/new"><button type="submit" class="btn btn-primary p-2 mb-2">Add a member</button></a>
+
+    </div>
+    
+    
+  </body>
+</html>
