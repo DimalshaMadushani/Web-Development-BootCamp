@@ -4,16 +4,22 @@
 </head>
 <body>
     <%- include('../partials/navbar')%>
-    <h1>Welcome <%= profile.name %> !</h1>
+    <h1 class="mt-5">Welcome <%= profile.name %> !</h1>
 
-    <div class="card card-show border-primary mb-3 " >
+    <!-- function -->
+    <% function capitalizeFirstLetter(string) {%>
+        <%return string.charAt(0).toUpperCase() + string.slice(1);%>
+    <% } %>
+
+    <div class="card card-show border-primary mb-5" >
         <div class="card-header text-center"><%= title %> Profile</div>
         <div class="card-body text-primary">
-            <ul class="d-grid gap-3">
-                <li>Name: <%=profile.name  %></li>
-                <li><%=keys[2] %>:<%= profile[keys[2]]%> %></li>
-                <li>Age: <%=profile.age  %></li>
-                <li>Email :<%=profile.email  %></li>
+            <ul class="d-grid gap-3 show-li">
+                <li><b>Name:</b> <%=profile.name  %></li>
+
+                <li><b><%=keys[2] %>:</b> <%= capitalizeFirstLetter(profile[keys[2]])%> </li>
+                <li><b>Age:</b> <%=profile.age  %></li>
+                <li><b>Email:</b> <%=profile.email  %></li>
             </ul>
             
 
@@ -35,4 +41,6 @@
         </div>
       </div>   
 </body>
+
+<%- include('../partials/footer') %>
 </html>
