@@ -85,7 +85,7 @@ app.get('/profiles/:category/new',(req,res) => {
     const {category} = req.params;
     keys = Object.keys(profiles[0]);
     handleCategory(category);
-    console.log(keys)
+    // console.log(keys)
     res.render('profiles/new',{title,category,profiles,keys})
 }) 
 
@@ -93,7 +93,7 @@ app.get('/profiles/:category/new',(req,res) => {
 app.post('/profiles/:category',(req,res) => {
     const {category} = req.params;
     const {name,designation,age,email} = req.body;
-    console.log(req.body)
+    // console.log(req.body)
     handleCategory(category);
 
     const newID = getID(profiles);
@@ -111,7 +111,7 @@ app.get('/profiles/:category/:id',(req,res) => {
 
     //extract the keys of the profile object
     keys = Object.keys(profiles[0]);
-    console.log(keys)
+    // console.log(keys)
     //get the corressponding profile by the id
     const profile = profiles.find(p => p.id === (id));
     res.render('profiles/show',{profile,category,keys,title})
@@ -161,13 +161,9 @@ app.delete('/profiles/:category/:id',(req,res) => {
     const {name,designation,age,email} = req.body;
     handleCategory(category);
 
-    //find the profile which needed to edit
-    // console.log(profiles)
-    // profiles = profiles.filter(p => p.id !== (id));
-    // console.log(profiles)
-    // res.redirect(`/profiles/${category}`) ///////////////not workingggggggggggggggggg
     
-    // Filter out numbers greater than 3
+    
+    // used this method instaead of filter method because i want to change the items in the original array
     let removeIndex;
     for (let i = 0; i < profiles.length; i++) {
         if (profiles[i].id === (id)) {
