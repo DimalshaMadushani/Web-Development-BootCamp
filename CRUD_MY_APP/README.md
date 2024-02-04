@@ -59,6 +59,3 @@ To add a new profile, click on the 'Add a member' button from the main category 
 
 Contributions to improve the application are welcome. Please ensure to update tests as appropriate.
 
-## License
-
-This project is licensed under the MIT License - see the `LICENSE` file for details.
