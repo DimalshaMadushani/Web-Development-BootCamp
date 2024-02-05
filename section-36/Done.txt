@@ -1,0 +1,11 @@
+mongosh - to get the mongo shell
+
+test is the default db that we are in
+
+show dbs - list all the non empty dbs
+
+use db_name - check and create a databse 
+
+db - show what is the db that we currently in
+
+#practice create(insert),read(find), update(update), delete(delete) using raw mongo commands follow the mongo documentation.
