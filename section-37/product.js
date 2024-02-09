@@ -43,33 +43,45 @@ const productSchema = new mongoose.Schema({
 // model instance methods, call functions on a instances of a model
 productSchema.methods.greet = function() {
     console.log("Welcome to Store!")
+    console.log(`-from ${this.name}`)
+}
+
+productSchema.methods.toggleOnSale = function() {
+    this.onSale = !this.onSale;
+    //return thenable
+    return this.save();
+}
+
+productSchema.methods.addCategory = function(newcat){
+    this.categories.push(newcat);
+    return this.save();
+}
+
+// adding static methods 
+productSchema.statics.fireSale = function(){
+    return this.updateMany({},{onSale:true, price:1})
 }
 
 const Product = mongoose.model('Product',productSchema);
-const bike = new Product({name:'Jersy',price: 9.5, categories: ['Cycling','Safety'],size:'M'})
-bike.save()
-    .then(data => {
-        console.log("It worked!!")
-        console.log(data);
-    })
+// // const p = new Product({name:"bike bottle",price:4});
+// p.save();
+// p.greet();
 
-    .catch(err => {
-        console.log("Oh noo Error!!")
-        console.log(err.errors);
-    })
+// const findProduct = async () => {
+//     const foundProduct = await Product.findOne({name:'bike bottle'});
+//     console.log(foundProduct);
+//     // foundProduct.greet();
 
-//validating the mongoose updated data
-//here we have use the runValidator:true to apply the validators into our updated data as well.
-//otherwise it wont validate
-Product.findOneAndUpdate({name:'Tire Pump'},{price:-20.4},{new:true,runValidators:true})
-    .then(data => {
-        console.log("It worked!!")
-        console.log(data);
-    })
+//     await foundProduct.toggleOnSale();
+//     console.log(foundProduct)
 
-    .catch(err => {
-        console.log("Oh noo Error!!")
-        console.log(err.errors);
-    })
+//     await foundProduct.addCategory('outdoors');
+//     console.log(foundProduct)
+// }
 
+// findProduct();
+
+Product.fireSale()
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
 
