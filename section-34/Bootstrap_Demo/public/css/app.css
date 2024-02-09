@@ -1,0 +1,49 @@
+body {
+    background-color: #DCF2F1;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+#heading {
+    color: #365486;
+    margin-top: 0.5em;
+}
+
+#description {
+    color: #5db0c5;
+}
+
+#subscribers {
+    background-color: #5db0c5;
+    color: #DCF2F1;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.card {
+    margin: auto;
+    width: 40%;
+    margin-bottom: 20px;
+    background-color: #b9efec;
+}
+
+.card-header {
+    color: #0f117d;
+    background-color: #9adcd8;
+}
+
+hr {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 60%;
+    border: 3px dashed #0b34cb;
+}
+
+
+@media screen and (max-width: 910px) {
+    .card {
+        width: 80%;
+    }
+}

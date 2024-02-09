@@ -4,7 +4,8 @@ const form = document.querySelector('#form')
 const container = document.querySelector("#container")
 const row = document.querySelector("#pasan");
 
-form.addEventListener('submit',async function (e) {
+form.addEventListener('keyup',async function (e) {
+    console.log(e);
     e.preventDefault();
     //remove all the images from the page after submiiting new search
     clearResults();

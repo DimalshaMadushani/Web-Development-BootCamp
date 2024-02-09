@@ -78,7 +78,7 @@ function displayImages(results) {
  }
 
 
-const clearResults = () => {
+const clearResults =  () => {
   
         // const imgTags = document.querySelectorAll('img'); 
         // for(let i=0;i<imgTags.length;i++) {
@@ -93,7 +93,7 @@ const clearResults = () => {
         container.append(newContainer);
 }
 
-const getRating = (data) => {
+const getRating = async(data) => {
     if(data.show.rating.average) {
         return data.show.rating.average;
     } else {
@@ -101,7 +101,7 @@ const getRating = (data) => {
     }
 }
 
-const getDuration = (data) => {
+const getDuration = async(data) => {
     if(data.show.genres[2]) {
         return data.show.genres[2];
     } else {
@@ -122,7 +122,7 @@ const getDuration = (data) => {
 // }
 
 // get summary and make the button visible or invisible
-const getSummary = (data) => {
+const getSummary = async(data) => {
     if(data.show.summary) {
         return data.show.summary;
     } else {
@@ -133,21 +133,3 @@ const getSummary = (data) => {
     }
 }
 
-// const getSummary = (data) => {
-//     if (data.show.summary) {
-//         return data.show.summary;
-//     } else {
-//         try {
-//             const readMore = document.getElementById("read");
-//             if (readMore) {
-//                 console.log("Hiding element for", data.show.name);
-//                 readMore.style.visibility = "hidden";
-//             } else {
-//                 console.error("Element with ID 'read' not found.");
-//             }
-//         } catch (error) {
-//             console.error("Error in getSummary:", error);
-//         }
-//         return "Not Available";
-//     }
-// }

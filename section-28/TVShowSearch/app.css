@@ -1,5 +1,5 @@
 /* css properties */
-.card{
+.card {
     transition: all 1s ease;
     cursor: pointer;
     border-radius: 5%;
@@ -8,7 +8,6 @@
     width: 100%;
     backface-visibility: hidden;
 }
-
 
 .card-container{
     position: relative;
@@ -42,11 +41,11 @@
 
 /* clamp the text using webkit engine*/
 .summary{
-    
     display: -webkit-box;
     -webkit-line-clamp: 13;
     -webkit-box-orient: vertical;
     overflow:hidden;
 }
+
 
   
