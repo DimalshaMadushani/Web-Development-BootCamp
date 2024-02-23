@@ -23,7 +23,18 @@
     },
     {
       "path": "section-38"
+    },
+    {
+      "path": "YelpCamp"
+    },
+    {
+      "path": "../../Tailwind"
+    },
+    {
+      "path": "section-40"
     }
   ],
-  "settings": {}
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Tailwind"
+  }
 }
