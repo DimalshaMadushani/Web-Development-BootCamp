@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+  </head>
+  <body>
+    <h1>Edit product details</h1>
+    <form method="POST" action="/products/<%= product.id %>?_method=PATCH">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="" value="<%=product.name %>" />
+      <br />
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        name="price"
+        id="price"
+        step="0.01"
+        value="<%= product.price %>"
+      />
+      <br />
+      <select name="category" id="" >
+        <% for(let category of categories){%>
+            <option value="<%=category %>" <%= product.category === category ? 'selected':'' %>><%=category %></option>
+        <% } %>  
+        <!-- <option value="fruit" <%= product.category === 'fruit' ? 'selected' : '' %>>Fruit</option>
+        <option value="dairy" <%= product.category === 'dairy' ? 'selected': '' %>>dairy</option>
+        <option value="vegetable" <%=product.category === 'vegetable'? 'selected': '' %>>vegetable</option> -->
+    </select>
+
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>
