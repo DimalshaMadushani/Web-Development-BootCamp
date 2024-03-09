@@ -45,17 +45,26 @@ app.post('/farms',async (req,res) => {
 
 //show a farm
 app.get('/farms/:id',async (req,res) => {
-    const farm = await Farm.findById(req.params.id);
+    // once we find a farm from a id we need to populate it with 'products'(name in the model inside the farmSchema)
+    const farm = await Farm.findById(req.params.id).populate('products');
     // res.send("heyyy")
     res.render('farms/show',{ farm })
     // const {id} = req.params
 })
-
+//deleting a farm
+app.delete('/farms/:id',async (req,res) => {
+    // console.log("Delteee")
+    const farm = await Farm.findByIdAndDelete(req.params.id);
+    //before we deleting the farm we hve to delete the associated products
+    
+    res.redirect('/farms')
+})
 //adda product to a particular farm
 // render the form
-app.get('/farms/:id/products/new',(req,res) => {
+app.get('/farms/:id/products/new',async(req,res) => {
     const {id}  = req.params;
-    res.render('products/new',{categories,id})
+    const farm = await Farm.findById(id);
+    res.render('products/new',{categories,farm})
 })
 
 app.post('/farms/:id/products', async(req,res) => {
@@ -72,7 +81,7 @@ app.post('/farms/:id/products', async(req,res) => {
     
     await farm.save();
     await product.save();
-    res.send(farm)
+    res.redirect(`/farms/${id}`)
 })
 
 //product routes
@@ -112,7 +121,8 @@ app.post('/products',async (req,res) => {
 //show one product details
 app.get('/products/:id',async (req,res) => {
     const {id} = req.params;
-    const product = await Product.findById(id);
+    //do the population as well
+    const product = await Product.findById(id).populate('farm','name');
     // res.send("details page start")
     // console.log(product)
     res.render('products/show',{product})

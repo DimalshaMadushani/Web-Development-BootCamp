@@ -6,19 +6,27 @@
     <title>Show Farm</title>
   </head>
   <body>
-    <h1>Show details of <%=farm.name %></h1>
+    <h1><%=farm.name %></h1>
     <ul>
-        <li>City: <%=farm.city %></li>
-        <li>E-mail: <%= farm.email %></li>
+      <li>City: <%=farm.city %></li>
+      <li>E-mail: <%= farm.email %></li>
     </ul>
-    <a href="/farms/<%=farm.id %>/edit"
-      ><button type="submit">Edit</button></a
-    >
-    <br />
-    <form method="POST" action="/farms/<%=farm.id %>?_method=DELETE">
-      <button type="submit">Delete</button>
-    </form>
+    <h2>Products</h2>
+    <% for (let p of farm.products) {%>
+        <ul>
+            <a href="/products/<%=p.id %>"><li><%= p.name %></li></a>
+        </ul>
+        
+        <% } %>
 
-    <a href="/products/">All Farms</a>
+    <!-- <a href="/farms/<%=farm.id %>/edit"><button type="submit">Edit</button></a>
+    <br /> -->
+    
+    <a href="/farms/<%=farm.id %>/products/new">Add a product</a>
+    <br />
+    <a href="/farms/">All Farms</a>
+    <form method="POST" action="/farms/<%=farm.id %>?_method=DELETE">
+        <button type="submit">Delete Farm</button>
+      </form>
   </body>
 </html>
