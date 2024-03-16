@@ -99,6 +99,7 @@ app.get('/products',async (req,res) => {
     // console.log(products)
     res.render('products/index',{products,categories,category})
 })
+
 //add new product
 //render the form
 app.get('/products/new',(req,res) => {
